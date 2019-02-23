@@ -29,7 +29,6 @@ import UIKit
      */
 
     @objc open func makeTitleLabel() -> BLTNTitleLabelContainer {
-
         let titleLabel = UILabel()
         titleLabel.textAlignment = .center
         titleLabel.textColor = appearance.titleTextColor
@@ -40,11 +39,10 @@ import UIKit
 
         titleLabel.font = appearance.makeTitleFont()
 
-        let needsCloseButton = item?.isDismissable == true && item?.requiresCloseButton == true
+        let needsCloseButton = item?.isDismissable == true && item?.showsCloseButton == true
         let inset: CGFloat = needsCloseButton ? 12 + 30 : 0
 
         return BLTNTitleLabelContainer(label: titleLabel, horizontalInset: inset)
-
     }
 
     /**
@@ -52,7 +50,6 @@ import UIKit
      */
 
     @objc open func makeDescriptionLabel() -> UILabel {
-
         let descriptionLabel = UILabel()
         descriptionLabel.textAlignment = .center
         descriptionLabel.textColor = appearance.descriptionTextColor
@@ -60,7 +57,6 @@ import UIKit
         descriptionLabel.font = appearance.makeDescriptionFont()
 
         return descriptionLabel
-
     }
 
     /**
@@ -74,7 +70,6 @@ import UIKit
     @objc open func makeTextField(placeholder: String? = nil,
                                   returnKey: UIReturnKeyType = .default,
                                   delegate: UITextFieldDelegate? = nil) -> UITextField {
-
         let textField = UITextField()
         textField.delegate = delegate
         textField.textAlignment = .left
@@ -83,7 +78,6 @@ import UIKit
         textField.returnKeyType = returnKey
 
         return textField
-
     }
 
     /**
@@ -96,7 +90,6 @@ import UIKit
      */
 
     @objc open func makeActionButton(title: String) -> BLTNHighlightButtonWrapper {
-
         let actionButton = HighlightButton()
         actionButton.cornerRadius = appearance.actionButtonCornerRadius
         actionButton.setBackgroundColor(appearance.actionButtonColor, forState: .normal)
@@ -121,7 +114,6 @@ import UIKit
         heightConstraint.isActive = true
 
         return wrapper
-
     }
 
     /**
@@ -133,7 +125,6 @@ import UIKit
      */
 
     @objc open func makeAlternativeButton(title: String) -> UIButton {
-
         let alternativeButton = RoundedButton()
         alternativeButton.cornerRadius = appearance.alternativeButtonCornerRadius
         alternativeButton.setTitle(title, for: .normal)
@@ -147,7 +138,6 @@ import UIKit
         }
 
         return alternativeButton
-
     }
 
     /**
@@ -157,7 +147,6 @@ import UIKit
      */
 
     @objc open func makeGroupStack(spacing: CGFloat = 10) -> UIStackView {
-
         let buttonsStack = UIStackView()
         buttonsStack.axis = .vertical
         buttonsStack.alignment = .fill
@@ -165,7 +154,6 @@ import UIKit
         buttonsStack.spacing = spacing
 
         return buttonsStack
-
     }
 
     /**
@@ -184,7 +172,6 @@ import UIKit
      */
 
     @objc open func wrapView(_ view: UIView, width: NSNumber?, height: NSNumber?, position: BLTNViewPosition) -> BLTNContainerView {
-
         let container = BLTNContainerView()
 
         container.contentSize = CGSize(width: width.flatMap(CGFloat.init) ?? UIView.noIntrinsicMetric,
@@ -207,7 +194,6 @@ import UIKit
         }
 
         return container
-
     }
 
 }
